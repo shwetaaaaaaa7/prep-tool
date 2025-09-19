@@ -7,7 +7,7 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Wholesaler Platform",
+  title: "Sales ",
   description: "Professional CRM and sales management platform for wholesalers",
   generator: "v0.app",
   icons: {
