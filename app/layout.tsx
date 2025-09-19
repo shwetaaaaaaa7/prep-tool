@@ -8,7 +8,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Sales Prep Tool",
-  description: "Sales management platform for wholesalers",
+  description: "Sales management platform",
   generator: "v0.app",
   icons: {
     icon: "/favicon.ico",
