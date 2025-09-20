@@ -8,102 +8,9 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, Star, TrendingUp, Package, Eye } from "lucide-react"
+import { products } from "@/data/financial-products"
 
-// Extended product data
-const products = [
-  {
-    id: "1",
-    name: "Smart Curtain System Pro",
-    category: "Smart Home",
-    price: 299,
-    cost: 180,
-    margin: 40,
-    stock: 45,
-    sold: 24,
-    rating: 4.8,
-    image: "/placeholder.svg?height=120&width=120",
-    description: "Automated curtain system with app control and voice integration",
-    features: ["Voice Control", "App Integration", "Timer Function", "Energy Saving"],
-    tags: ["Popular", "High Margin"],
-  },
-  {
-    id: "2",
-    name: "Eco-Friendly Bamboo Blinds",
-    category: "Blinds",
-    price: 149,
-    cost: 89,
-    margin: 40,
-    stock: 32,
-    sold: 18,
-    rating: 4.6,
-    image: "/placeholder.svg?height=120&width=120",
-    description: "Sustainable bamboo blinds with UV protection and natural finish",
-    features: ["UV Protection", "Sustainable Material", "Easy Installation", "Multiple Sizes"],
-    tags: ["Eco-Friendly", "Best Seller"],
-  },
-  {
-    id: "3",
-    name: "Luxury Velvet Curtains",
-    category: "Curtains",
-    price: 199,
-    cost: 120,
-    margin: 40,
-    stock: 28,
-    sold: 15,
-    rating: 4.7,
-    image: "/placeholder.svg?height=120&width=120",
-    description: "Premium velvet curtains in multiple colors with blackout lining",
-    features: ["Blackout Lining", "Premium Velvet", "Multiple Colors", "Thermal Insulation"],
-    tags: ["Premium", "Luxury"],
-  },
-  {
-    id: "4",
-    name: "Motorized Roller Shades",
-    category: "Smart Home",
-    price: 399,
-    cost: 240,
-    margin: 40,
-    stock: 18,
-    sold: 12,
-    rating: 4.9,
-    image: "/placeholder.svg?height=120&width=120",
-    description: "Voice-controlled roller shades with timer and remote control",
-    features: ["Voice Control", "Remote Control", "Timer Function", "Quiet Motor"],
-    tags: ["Premium", "Smart"],
-  },
-  {
-    id: "5",
-    name: "Blackout Cellular Shades",
-    category: "Blinds",
-    price: 179,
-    cost: 107,
-    margin: 40,
-    stock: 35,
-    sold: 20,
-    rating: 4.5,
-    image: "/placeholder.svg?height=120&width=120",
-    description: "Energy-efficient cellular shades with complete light blocking",
-    features: ["Complete Blackout", "Energy Efficient", "Cordless", "Easy Clean"],
-    tags: ["Energy Efficient"],
-  },
-  {
-    id: "6",
-    name: "Sheer Elegance Panels",
-    category: "Curtains",
-    price: 129,
-    cost: 77,
-    margin: 40,
-    stock: 42,
-    sold: 16,
-    rating: 4.4,
-    image: "/placeholder.svg?height=120&width=120",
-    description: "Light-filtering sheer panels with elegant design",
-    features: ["Light Filtering", "Elegant Design", "Easy Care", "Multiple Patterns"],
-    tags: ["Affordable", "Versatile"],
-  },
-]
-
-const categories = ["All", "Curtains", "Blinds", "Smart Home", "Accessories"]
+const categories = ["All", "ETFs", "Mutual Funds", "SMAs", "Insurance"]
 const sortOptions = [
   { value: "name", label: "Name" },
   { value: "price", label: "Price" },
@@ -159,22 +66,22 @@ export function ProductCatalog() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Inventory Value</CardTitle>
+            <CardTitle className="text-sm font-medium">Portfolio Value</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">${totalValue.toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground">Total stock value</p>
+            <p className="text-xs text-muted-foreground">Total portfolio value</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Avg Margin</CardTitle>
+            <CardTitle className="text-sm font-medium">Avg Commission</CardTitle>
             <Star className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{avgMargin.toFixed(1)}%</div>
-            <p className="text-xs text-muted-foreground">Average profit margin</p>
+            <p className="text-xs text-muted-foreground">Average commission rate</p>
           </CardContent>
         </Card>
       </div>
@@ -190,15 +97,15 @@ export function ProductCatalog() {
           {/* Filters */}
           <Card>
             <CardHeader>
-              <CardTitle>Product Catalog</CardTitle>
-              <CardDescription>Browse and manage your product inventory</CardDescription>
+              <CardTitle>Financial Product Catalog</CardTitle>
+              <CardDescription>Browse and manage your financial product portfolio</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <div className="relative flex-1">
                   <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                   <Input
-                    placeholder="Search products..."
+                    placeholder="Search financial products..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="pl-8"
@@ -237,7 +144,7 @@ export function ProductCatalog() {
                     <CardContent className="p-4">
                       <div className="flex items-start space-x-4">
                         <img
-                          src={product.image || "/placeholder.svg"}
+                          src={product.image || "/placeholder.svg?height=64&width=64&query=financial+chart"}
                           alt={product.name}
                           className="w-16 h-16 rounded-md object-cover bg-muted"
                         />
@@ -250,7 +157,7 @@ export function ProductCatalog() {
                               <span className="text-xs">{product.rating}</span>
                             </div>
                             <span className="text-xs text-muted-foreground">•</span>
-                            <span className="text-xs text-muted-foreground">{product.sold} sold</span>
+                            <span className="text-xs text-muted-foreground">{product.sold} clients</span>
                           </div>
                           <div className="flex flex-wrap gap-1 mb-2">
                             {product.tags.map((tag) => (
@@ -262,10 +169,10 @@ export function ProductCatalog() {
                           <div className="flex items-center justify-between">
                             <div>
                               <div className="font-semibold">${product.price}</div>
-                              <div className="text-xs text-muted-foreground">{product.margin}% margin</div>
+                              <div className="text-xs text-muted-foreground">{product.margin}% commission</div>
                             </div>
                             <div className="text-right">
-                              <div className="text-sm font-medium">{product.stock} in stock</div>
+                              <div className="text-sm font-medium">{product.stock} available</div>
                               <Button
                                 size="sm"
                                 variant="outline"
@@ -291,11 +198,11 @@ export function ProductCatalog() {
           <Card>
             <CardHeader>
               <CardTitle>AI-Powered Recommendations</CardTitle>
-              <CardDescription>Smart product suggestions based on customer data and market trends</CardDescription>
+              <CardDescription>Smart product suggestions based on client data and market trends</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Trending Products</h3>
+                <h3 className="text-lg font-semibold">Top Performing Products</h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {products
                     .filter((p) => p.tags.includes("Popular") || p.sold > 15)
@@ -303,15 +210,15 @@ export function ProductCatalog() {
                     .map((product) => (
                       <div key={product.id} className="flex items-center space-x-3 p-3 border rounded-lg">
                         <img
-                          src={product.image || "/placeholder.svg"}
+                          src={product.image || "/placeholder.svg?height=48&width=48&query=financial+chart"}
                           alt={product.name}
                           className="w-12 h-12 rounded-md object-cover bg-muted"
                         />
                         <div className="flex-1">
                           <h4 className="font-medium">{product.name}</h4>
-                          <p className="text-sm text-muted-foreground">{product.sold} units sold this month</p>
+                          <p className="text-sm text-muted-foreground">{product.sold} clients this month</p>
                           <Badge variant="outline" className="mt-1">
-                            Trending Up
+                            High Demand
                           </Badge>
                         </div>
                       </div>
@@ -320,7 +227,7 @@ export function ProductCatalog() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold">High Margin Opportunities</h3>
+                <h3 className="text-lg font-semibold">High Commission Opportunities</h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {products
                     .filter((p) => p.margin > 35)
@@ -328,15 +235,15 @@ export function ProductCatalog() {
                     .map((product) => (
                       <div key={product.id} className="flex items-center space-x-3 p-3 border rounded-lg">
                         <img
-                          src={product.image || "/placeholder.svg"}
+                          src={product.image || "/placeholder.svg?height=48&width=48&query=financial+chart"}
                           alt={product.name}
                           className="w-12 h-12 rounded-md object-cover bg-muted"
                         />
                         <div className="flex-1">
                           <h4 className="font-medium">{product.name}</h4>
-                          <p className="text-sm text-muted-foreground">{product.margin}% profit margin</p>
+                          <p className="text-sm text-muted-foreground">{product.margin}% commission rate</p>
                           <Badge variant="outline" className="mt-1 text-green-600 border-green-200">
-                            High Margin
+                            High Commission
                           </Badge>
                         </div>
                       </div>
@@ -345,22 +252,22 @@ export function ProductCatalog() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Restock Alerts</h3>
+                <h3 className="text-lg font-semibold">Limited Availability</h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {products
                     .filter((p) => p.stock < 25)
                     .map((product) => (
                       <div key={product.id} className="flex items-center space-x-3 p-3 border rounded-lg">
                         <img
-                          src={product.image || "/placeholder.svg"}
+                          src={product.image || "/placeholder.svg?height=48&width=48&query=financial+chart"}
                           alt={product.name}
                           className="w-12 h-12 rounded-md object-cover bg-muted"
                         />
                         <div className="flex-1">
                           <h4 className="font-medium">{product.name}</h4>
-                          <p className="text-sm text-muted-foreground">Only {product.stock} units remaining</p>
+                          <p className="text-sm text-muted-foreground">Only {product.stock} spots remaining</p>
                           <Badge variant="outline" className="mt-1 text-orange-600 border-orange-200">
-                            Low Stock
+                            Limited Spots
                           </Badge>
                         </div>
                       </div>
@@ -375,8 +282,8 @@ export function ProductCatalog() {
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>Top Performers</CardTitle>
-                <CardDescription>Best selling products by revenue</CardDescription>
+                <CardTitle>Top Revenue Generators</CardTitle>
+                <CardDescription>Best performing products by total revenue</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
@@ -391,7 +298,7 @@ export function ProductCatalog() {
                           </div>
                           <div>
                             <div className="font-medium">{product.name}</div>
-                            <div className="text-sm text-muted-foreground">{product.sold} units sold</div>
+                            <div className="text-sm text-muted-foreground">{product.sold} clients</div>
                           </div>
                         </div>
                         <div className="text-right">
@@ -407,7 +314,7 @@ export function ProductCatalog() {
             <Card>
               <CardHeader>
                 <CardTitle>Category Performance</CardTitle>
-                <CardDescription>Sales by product category</CardDescription>
+                <CardDescription>Sales by financial product category</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
@@ -419,7 +326,7 @@ export function ProductCatalog() {
                       <div key={category} className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className="font-medium">{category}</span>
-                          <span className="text-sm text-muted-foreground">{totalSold} units</span>
+                          <span className="text-sm text-muted-foreground">{totalSold} clients</span>
                         </div>
                         <div className="w-full bg-muted rounded-full h-2">
                           <div
@@ -458,7 +365,7 @@ export function ProductCatalog() {
             <CardContent className="space-y-4">
               <div className="flex items-start space-x-4">
                 <img
-                  src={selectedProduct.image || "/placeholder.svg"}
+                  src={selectedProduct.image || "/placeholder.svg?height=128&width=128&query=financial+chart"}
                   alt={selectedProduct.name}
                   className="w-32 h-32 rounded-lg object-cover bg-muted"
                 />
@@ -467,21 +374,21 @@ export function ProductCatalog() {
                   <div className="flex items-center gap-4">
                     <div>
                       <div className="text-2xl font-bold">${selectedProduct.price}</div>
-                      <div className="text-sm text-muted-foreground">Retail Price</div>
+                      <div className="text-sm text-muted-foreground">Minimum Investment</div>
                     </div>
                     <div>
                       <div className="text-xl font-semibold text-green-600">{selectedProduct.margin}%</div>
-                      <div className="text-sm text-muted-foreground">Margin</div>
+                      <div className="text-sm text-muted-foreground">Commission</div>
                     </div>
                     <div>
                       <div className="text-xl font-semibold">{selectedProduct.stock}</div>
-                      <div className="text-sm text-muted-foreground">In Stock</div>
+                      <div className="text-sm text-muted-foreground">Available</div>
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <h4 className="font-medium mb-2">Features</h4>
+                <h4 className="font-medium mb-2">Key Features</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProduct.features.map((feature: string) => (
                     <Badge key={feature} variant="outline">
@@ -491,24 +398,24 @@ export function ProductCatalog() {
                 </div>
               </div>
               <div>
-                <h4 className="font-medium mb-2">Performance</h4>
+                <h4 className="font-medium mb-2">Performance Metrics</h4>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div className="p-3 bg-muted rounded-lg">
                     <div className="text-lg font-semibold">{selectedProduct.sold}</div>
-                    <div className="text-sm text-muted-foreground">Units Sold</div>
+                    <div className="text-sm text-muted-foreground">Active Clients</div>
                   </div>
                   <div className="p-3 bg-muted rounded-lg">
                     <div className="text-lg font-semibold flex items-center justify-center gap-1">
                       <Star className="h-4 w-4 text-yellow-500 fill-current" />
                       {selectedProduct.rating}
                     </div>
-                    <div className="text-sm text-muted-foreground">Rating</div>
+                    <div className="text-sm text-muted-foreground">Client Rating</div>
                   </div>
                   <div className="p-3 bg-muted rounded-lg">
                     <div className="text-lg font-semibold">
                       ${(selectedProduct.sold * selectedProduct.price).toLocaleString()}
                     </div>
-                    <div className="text-sm text-muted-foreground">Revenue</div>
+                    <div className="text-sm text-muted-foreground">Total Revenue</div>
                   </div>
                 </div>
               </div>

@@ -34,26 +34,50 @@ const navigation = [
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
   const pathname = usePathname()
 
   useEffect(() => {
-    const userData = localStorage.getItem("wholesaler_user")
-    if (!userData) {
+    console.log("[v0] DashboardLayout useEffect triggered")
+    try {
+      const userData = localStorage.getItem("wholesaler_user")
+      console.log("[v0] Retrieved user data from localStorage:", userData)
+
+      if (!userData) {
+        console.log("[v0] No user data found, redirecting to login")
+        router.push("/")
+        return
+      }
+
+      const parsedUser = JSON.parse(userData)
+      console.log("[v0] Parsed user data:", parsedUser)
+      setUser(parsedUser)
+    } catch (error) {
+      console.log("[v0] Error parsing user data:", error)
       router.push("/")
-      return
+    } finally {
+      setIsLoading(false)
     }
-    setUser(JSON.parse(userData))
-  }, []) // removed router from dependency array as it's stable
+  }, [router])
 
   const handleLogout = () => {
+    console.log("[v0] Logging out user")
     localStorage.removeItem("wholesaler_user")
     router.push("/")
   }
 
-  if (!user) {
+  if (isLoading) {
+    console.log("[v0] Dashboard still loading...")
     return <div>Loading...</div>
   }
+
+  if (!user) {
+    console.log("[v0] No user found, should redirect")
+    return <div>Redirecting...</div>
+  }
+
+  console.log("[v0] Rendering dashboard for user:", user.name)
 
   return (
     <div className="min-h-screen bg-background">

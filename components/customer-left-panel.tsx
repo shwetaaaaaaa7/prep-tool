@@ -180,7 +180,7 @@ export function CustomerLeftPanel({ customer }: { customer: any }) {
                 <XAxis dataKey="month" />
                 <YAxis />
                 <Tooltip formatter={(value) => [`$${value}`, "Amount"]} />
-                <Line type="monotone" dataKey="amount" stroke="var(--color-primary)" strokeWidth={2} />
+                <Line type="monotone" dataKey="amount" stroke="#2563eb" strokeWidth={2} dot={true}/>    
               </LineChart>
             </ResponsiveContainer>
           </div>

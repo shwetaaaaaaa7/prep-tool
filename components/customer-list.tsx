@@ -8,14 +8,13 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Search, Users, TrendingUp, DollarSign } from "lucide-react"
 
-// Mock customer data
 const customers = [
   {
     id: "1",
     name: "Sarah Johnson",
-    email: "sarah.johnson@retailstore.com",
-    company: "Johnson Retail Store",
-    totalSpent: 125000,
+    email: "sarah.johnson@wealthadvisors.com",
+    company: "Johnson Wealth Advisors",
+    totalSpent: 2500000,
     lastOrder: "2024-01-15",
     status: "active",
     avatar: "/placeholder.svg?height=40&width=40",
@@ -23,9 +22,9 @@ const customers = [
   {
     id: "2",
     name: "Michael Chen",
-    email: "michael@chenenterprises.com",
-    company: "Chen Enterprises",
-    totalSpent: 89000,
+    email: "michael@chenfinancial.com",
+    company: "Chen Financial Group",
+    totalSpent: 1890000,
     lastOrder: "2024-01-12",
     status: "active",
     avatar: "/placeholder.svg?height=40&width=40",
@@ -33,9 +32,9 @@ const customers = [
   {
     id: "3",
     name: "Emily Rodriguez",
-    email: "emily@modernhome.com",
-    company: "Modern Home Solutions",
-    totalSpent: 156000,
+    email: "emily@modernportfolio.com",
+    company: "Modern Portfolio Management",
+    totalSpent: 3560000,
     lastOrder: "2024-01-10",
     status: "active",
     avatar: "/placeholder.svg?height=40&width=40",
@@ -43,9 +42,9 @@ const customers = [
   {
     id: "4",
     name: "David Thompson",
-    email: "david@thompsondecor.com",
-    company: "Thompson Decor",
-    totalSpent: 67000,
+    email: "david@thompsoninvest.com",
+    company: "Thompson Investment Services",
+    totalSpent: 1670000,
     lastOrder: "2023-12-28",
     status: "inactive",
     avatar: "/placeholder.svg?height=40&width=40",

@@ -11,26 +11,25 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar, Users, Package, TrendingUp, Mail, ArrowLeft, Plus, X } from "lucide-react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
 
-// Mock data
 const customers = {
   "1": {
     id: "1",
     name: "Sarah Johnson",
-    company: "Johnson Retail Store",
-    totalSpent: 125000,
+    company: "Johnson Wealth Advisors",
+    totalSpent: 2500000,
     purchases: [
-      { month: "Jan", amount: 12500 },
-      { month: "Dec", amount: 18000 },
-      { month: "Nov", amount: 8500 },
-      { month: "Oct", amount: 15000 },
+      { month: "Jan", amount: 450000 },
+      { month: "Dec", amount: 680000 },
+      { month: "Nov", amount: 320000 },
+      { month: "Oct", amount: 550000 },
     ],
   },
 }
 
 const products = {
-  "1": { id: "1", name: "Smart Curtain System Pro", price: 299, category: "Smart Home" },
-  "2": { id: "2", name: "Eco-Friendly Bamboo Blinds", price: 149, category: "Blinds" },
-  "4": { id: "4", name: "Motorized Roller Shades", price: 399, category: "Smart Home" },
+  "1": { id: "1", name: "Vanguard Total Stock Market ETF", price: 245.5, category: "ETFs" },
+  "2": { id: "2", name: "Fidelity Growth Company Fund", price: 156.75, category: "Mutual Funds" },
+  "3": { id: "3", name: "BlackRock ESG Equity SMA", price: 500000, category: "SMAs" },
 }
 
 export function AgendaCreator() {
@@ -77,10 +76,10 @@ export function AgendaCreator() {
 
   const generateAgenda = () => {
     const autoItems = [
-      "Review customer purchase history and trends",
-      "Present recommended products based on customer preferences",
-      "Discuss pricing and volume discounts",
-      "Plan next steps and follow-up actions",
+      "Review customer portfolio performance and investment history",
+      "Present recommended financial products based on risk profile",
+      "Discuss fee structures and minimum investment requirements",
+      "Plan asset allocation strategy and rebalancing schedule",
     ]
     setAgendaItems([...agendaItems, ...autoItems])
   }
@@ -120,10 +119,10 @@ export function AgendaCreator() {
               <div>
                 <h3 className="font-semibold">{customer.name}</h3>
                 <p className="text-sm text-muted-foreground">{customer.company}</p>
-                <p className="text-sm font-medium mt-2">Total Spent: ${customer.totalSpent.toLocaleString()}</p>
+                <p className="text-sm font-medium mt-2">Total Invested: ${customer.totalSpent.toLocaleString()}</p>
               </div>
               <div>
-                <h4 className="font-medium mb-2">Purchase History</h4>
+                <h4 className="font-medium mb-2">Investment History</h4>
                 <div className="h-[200px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={customer.purchases}>
@@ -146,7 +145,7 @@ export function AgendaCreator() {
                 <Package className="h-5 w-5" />
                 Recommended Products
               </CardTitle>
-              <CardDescription>Products to discuss in the meeting</CardDescription>
+              <CardDescription>Financial products to discuss in the meeting</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">

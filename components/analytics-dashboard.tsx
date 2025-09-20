@@ -20,21 +20,20 @@ import {
 } from "recharts"
 import { TrendingUp, Users, DollarSign, ShoppingCart, Calendar, Phone, Mail } from "lucide-react"
 
-// Mock analytics data
 const revenueData = [
-  { month: "Jan", revenue: 45000, orders: 18, customers: 12 },
-  { month: "Feb", revenue: 52000, orders: 22, customers: 15 },
-  { month: "Mar", revenue: 48000, orders: 19, customers: 13 },
-  { month: "Apr", revenue: 61000, orders: 25, customers: 18 },
-  { month: "May", revenue: 55000, orders: 23, customers: 16 },
-  { month: "Jun", revenue: 67000, orders: 28, customers: 20 },
+  { month: "Jan", revenue: 2450000, orders: 18, customers: 12 },
+  { month: "Feb", revenue: 2820000, orders: 22, customers: 15 },
+  { month: "Mar", revenue: 2680000, orders: 19, customers: 13 },
+  { month: "Apr", revenue: 3410000, orders: 25, customers: 18 },
+  { month: "May", revenue: 3050000, orders: 23, customers: 16 },
+  { month: "Jun", revenue: 3670000, orders: 28, customers: 20 },
 ]
 
 const categoryData = [
-  { name: "Curtains", value: 45, color: "#0d9488" },
-  { name: "Blinds", value: 30, color: "#059669" },
-  { name: "Smart Home", value: 20, color: "#16a34a" },
-  { name: "Accessories", value: 5, color: "#4ade80" },
+  { name: "ETFs", value: 35, color: "#0d9488" },
+  { name: "Mutual Funds", value: 30, color: "#059669" },
+  { name: "SMAs", value: 25, color: "#16a34a" },
+  { name: "Insurance", value: 10, color: "#4ade80" },
 ]
 
 const engagementData = [
@@ -47,10 +46,10 @@ const engagementData = [
 ]
 
 const customerSegments = [
-  { segment: "High Value", count: 8, revenue: 180000, color: "#164e63" },
-  { segment: "Regular", count: 15, revenue: 120000, color: "#0ea5e9" },
-  { segment: "New", count: 12, revenue: 45000, color: "#f59e0b" },
-  { segment: "At Risk", count: 5, revenue: 25000, color: "#ef4444" },
+  { segment: "High Value", count: 8, revenue: 8800000, color: "#164e63" },
+  { segment: "Regular", count: 15, revenue: 4200000, color: "#0ea5e9" },
+  { segment: "New", count: 12, revenue: 1450000, color: "#f59e0b" },
+  { segment: "At Risk", count: 5, revenue: 850000, color: "#ef4444" },
 ]
 
 export function AnalyticsDashboard() {
@@ -128,7 +127,7 @@ export function AnalyticsDashboard() {
                       <XAxis dataKey="month" />
                       <YAxis />
                       <Tooltip formatter={(value) => [`$${value}`, "Revenue"]} />
-                      <Line type="monotone" dataKey="revenue" stroke="var(--color-primary)" strokeWidth={2} />
+                      <Line type="monotone" dataKey="revenue" stroke="#2563eb" strokeWidth={2} dot={true}/>
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
@@ -327,32 +326,32 @@ export function AnalyticsDashboard() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 border rounded-lg">
                     <div>
-                      <div className="font-medium">Smart Curtain System Pro</div>
-                      <div className="text-sm text-muted-foreground">Smart Home</div>
+                      <div className="font-medium">Vanguard Total Stock Market ETF</div>
+                      <div className="text-sm text-muted-foreground">ETFs</div>
                     </div>
                     <div className="text-right">
                       <div className="font-semibold">24 units</div>
-                      <div className="text-sm text-muted-foreground">$7,176</div>
+                      <div className="text-sm text-muted-foreground">$5,892</div>
                     </div>
                   </div>
                   <div className="flex items-center justify-between p-3 border rounded-lg">
                     <div>
-                      <div className="font-medium">Luxury Velvet Curtains</div>
-                      <div className="text-sm text-muted-foreground">Curtains</div>
+                      <div className="font-medium">BlackRock ESG Equity SMA</div>
+                      <div className="text-sm text-muted-foreground">SMAs</div>
                     </div>
                     <div className="text-right">
                       <div className="font-semibold">18 units</div>
-                      <div className="text-sm text-muted-foreground">$3,582</div>
+                      <div className="text-sm text-muted-foreground">$9,000,000</div>
                     </div>
                   </div>
                   <div className="flex items-center justify-between p-3 border rounded-lg">
                     <div>
-                      <div className="font-medium">Eco-Friendly Bamboo Blinds</div>
-                      <div className="text-sm text-muted-foreground">Blinds</div>
+                      <div className="font-medium">Fidelity Growth Company Fund</div>
+                      <div className="text-sm text-muted-foreground">Mutual Funds</div>
                     </div>
                     <div className="text-right">
                       <div className="font-semibold">15 units</div>
-                      <div className="text-sm text-muted-foreground">$2,235</div>
+                      <div className="text-sm text-muted-foreground">$2,351</div>
                     </div>
                   </div>
                 </div>
