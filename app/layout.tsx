@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "Sales management platform",
   generator: "v0.app",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/apple-touch-icon.jpg",
     shortcut: "/favicon-16x16.jpg",
     apple: "/apple-touch-icon.jpg",
   },
