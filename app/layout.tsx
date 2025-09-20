@@ -16,9 +16,14 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Wholesaler CRM Platform",
-  description: "Comprehensive CRM platform for wholesale business management",
+  title: "Sales Prep Tool",
+  description: "Sales management platform",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.jpg",
+    apple: "/apple-touch-icon.jpg",
+  },
 }
 
 export default function RootLayout({
